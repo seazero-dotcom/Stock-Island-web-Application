@@ -1,0 +1,95 @@
+$pv-bg-color: rgba(28, 28, 28, 0.7);
+$pv-gradient: linear-gradient(to right, rgba(44,43,43,1) 0%,rgba(242,193,235,1) 69%,rgba(165,140,253,1) 100%);
+
+.BoardDetail {
+    position: relative;
+    .buttons {
+        position: absolute;
+        top: -30px;
+        right: 0px;
+        text-align: right;
+        
+         * {
+            cursor: pointer;
+            margin-left: 5px;
+         }
+    }
+}
+//layout
+.PostDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap : nowrap;
+    .column-1,
+    .column-3
+    {
+        flex: 0 0 5vw;
+    }
+    .column-2 {
+        width: 100%;
+    }
+}
+
+//speech balloons
+.PostDetail {
+    .Post {
+        width: 80%;
+        position: relative;
+        clear: both;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: $pv-bg-color;
+        text-align: left;
+        margin: 1vw 0 0 20px;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            left: -15px;
+            border-top: 15px solid $pv-bg-color;
+        }
+    }
+}
+
+
+
+.PostDetail {
+    .post-userinfo {
+        word-wrap: break-word;
+    }
+    .Post {
+        hr {
+            height: 1px;
+            background: $pv-gradient;
+        }
+        .info {
+            right: 0;
+            margin-top: 20px;
+            text-align: right;
+            .date,
+            .views {
+               margin-right: 10px;
+               color: gray;
+            }
+        }
+    }
+}
+
+@media screen and (max-width : 992px) {
+    .PostDetail {
+        .column-1,
+        .column-3 {
+            flex: 0 0 0vw;
+        }
+        .Post {
+            min-width: none;
+            max-width: 500px;
+            width: -webkit-fill-available;
+        }
+    }
+}
